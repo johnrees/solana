@@ -458,7 +458,7 @@ impl PostgresClient for SimplePostgresClient {
                         Some(parent) => {
                             client.client.execute(
                                 "INSERT INTO slot (slot, parent, status, updated_on) \
-                                VALUES ($1, $2, $3, $4) \
+                                VALUES ($1, $2, $3:slot_status, $4) \
                                 ON CONFLICT (slot) DO UPDATE SET parent=$2, status=$3, updated_on=$4",
                                 &[
                                     &slot,
@@ -471,7 +471,7 @@ impl PostgresClient for SimplePostgresClient {
                         None => {
                             client.client.execute(
                                 "INSERT INTO slot (slot, status, updated_on) \
-                                VALUES ($1, $2, $3) \
+                                VALUES ($1, $2:slot_status, $3) \
                                 ON CONFLICT (slot) DO UPDATE SET status=$2, updated_on=$3",
                                 &[
                                     &slot,

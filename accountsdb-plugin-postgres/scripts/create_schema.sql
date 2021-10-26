@@ -2,8 +2,6 @@
  * This plugin implementation for PostgreSQL requires the following tables
  */
 -- The table storing accounts
-
-
 CREATE TABLE account (
     pubkey BYTEA PRIMARY KEY,
     owner BYTEA,
@@ -17,10 +15,16 @@ CREATE TABLE account (
 );
 
 -- The table storing slot information
+CREATE TYPE slot_status AS ENUM (
+    "processed",
+    "confirmed",
+    "rooted"
+);
+
 CREATE TABLE slot (
     slot BIGINT PRIMARY KEY,
     parent BIGINT,
-    status varchar(16) NOT NULL,
+    status slot_status NOT NULL,
     updated_on TIMESTAMP NOT NULL
 );
 
