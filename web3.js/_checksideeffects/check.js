@@ -7,6 +7,7 @@ const exec = promisify(require('child_process').exec);
 const outputDir = './output';
 
 glob('../dist/**/*.js', async (err, matches) => {
+  // xxx: check-side-effects is unhappy if not sequential
   for (const match of matches) {
     try {
       const {stdout, stderr} = await exec(
