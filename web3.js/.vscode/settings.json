@@ -1,0 +1,9 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false,
+    "source.fixAll.eslint": false,
+    "source.fixAll.tslint": false,
+    "source.fixAll.stylelint": false
+  },
+  "editor.formatOnSave": false
+}

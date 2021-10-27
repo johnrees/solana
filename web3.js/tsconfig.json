@@ -14,7 +14,8 @@
     "isolatedModules": true,
     "baseUrl": "src",
     "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "outDir": "dist"
   },
   "include": ["src"]
 }
