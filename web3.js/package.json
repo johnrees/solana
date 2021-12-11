@@ -37,6 +37,7 @@
     "/src"
   ],
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "build": "npm run clean; cross-env NODE_ENV=production rollup -c; npm run type:gen; npm run flow:gen; npm run flow:check",
     "build:fixtures": "set -ex; ./test/fixtures/noop-program/build.sh",
     "clean": "rimraf ./coverage ./lib",
@@ -137,5 +138,8 @@
   },
   "engines": {
     "node": ">=12.20.0"
+  },
+  "resolutions": {
+    "uuid": "^8.3.2"
   }
 }
